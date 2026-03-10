@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PassForge - Smart Password Generator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🔐 PassForge</h1>
+<p>Smart Password Generator</p>
+
+<input type="text" id="password" readonly>
+
+<div class="controls">
+
+<label>Password Length</label>
+<input type="range" id="length" min="6" max="30" value="12">
+<span id="lengthValue">12</span>
+
+</div>
+
+<div class="options">
+
+<label><input type="checkbox" id="uppercase" checked> Uppercase Letters</label>
+
+<label><input type="checkbox" id="numbers" checked> Numbers</label>
+
+<label><input type="checkbox" id="symbols"> Symbols</label>
+
+</div>
+
+<div class="buttons">
+
+<button onclick="generatePassword()">Generate</button>
+<button onclick="copyPassword()">Copy</button>
+
+</div>
+
+<div class="strength">
+Strength: <span id="strengthText">Medium</span>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
