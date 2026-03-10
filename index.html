@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PassForge - Smart Password Generator</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -13,37 +12,35 @@
 <div class="container">
 
 <h1>🔐 PassForge</h1>
-<p>Smart Password Generator</p>
+<p>Advanced Password Generator</p>
 
-<input type="text" id="password" readonly>
+<input type="text" id="password" placeholder="Click Generate" readonly>
 
-<div class="controls">
-
-<label>Password Length</label>
+<div class="lengthBox">
+<label>Password Length: <span id="lengthValue">12</span></label>
 <input type="range" id="length" min="6" max="30" value="12">
-<span id="lengthValue">12</span>
-
 </div>
 
 <div class="options">
 
-<label><input type="checkbox" id="uppercase" checked> Uppercase Letters</label>
-
+<label><input type="checkbox" id="lowercase" checked> Lowercase</label>
+<label><input type="checkbox" id="uppercase" checked> Uppercase</label>
 <label><input type="checkbox" id="numbers" checked> Numbers</label>
-
 <label><input type="checkbox" id="symbols"> Symbols</label>
+<label><input type="checkbox" id="avoid"> Avoid Ambiguous</label>
 
 </div>
 
 <div class="buttons">
-
-<button onclick="generatePassword()">Generate</button>
-<button onclick="copyPassword()">Copy</button>
-
+<button id="generateBtn">Generate</button>
+<button id="copyBtn">Copy</button>
 </div>
 
-<div class="strength">
+<div class="strengthBox">
 Strength: <span id="strengthText">Medium</span>
+<div class="strengthBar">
+<div id="strengthFill"></div>
+</div>
 </div>
 
 </div>
