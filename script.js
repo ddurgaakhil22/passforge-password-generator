@@ -1,75 +1,35 @@
-const lengthSlider = document.getElementById("length")
-const lengthValue = document.getElementById("lengthValue")
-const passwordField = document.getElementById("password")
-
-lengthSlider.addEventListener("input", function(){
-lengthValue.textContent = lengthSlider.value
-})
-
 function generatePassword(){
 
-let length = lengthSlider.value
+const length = document.getElementById("length").value
 
-let lower = "abcdefghijklmnopqrstuvwxyz"
-let upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-let numbers = "0123456789"
-let symbols = "!@#$%^&*()_+"
+const lower = "abcdefghijklmnopqrstuvwxyz"
+const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+const numbers = "0123456789"
+const symbols = "!@#$%^&*()_+"
 
-let allChars = lower
+let characters = lower
 
 if(document.getElementById("uppercase").checked){
-allChars += upper
+characters += upper
 }
 
 if(document.getElementById("numbers").checked){
-allChars += numbers
+characters += numbers
 }
 
 if(document.getElementById("symbols").checked){
-allChars += symbols
+characters += symbols
 }
 
 let password = ""
 
 for(let i=0;i<length;i++){
 
-let randomIndex = Math.floor(Math.random() * allChars.length)
+let random = window.crypto.getRandomValues(new Uint32Array(1))[0] % characters.length
 
-password += allChars[randomIndex]
-
-}
-
-passwordField.value = password
-
-checkStrength(password)
+password += characters[random]
 
 }
 
-function copyPassword(){
-
-if(passwordField.value === ""){
-alert("Generate password first")
-return
-}
-
-navigator.clipboard.writeText(passwordField.value)
-
-alert("Password Copied")
-
-}
-
-function checkStrength(password){
-
-let strengthText = document.getElementById("strengthText")
-
-if(password.length < 8){
-strengthText.textContent = "Weak"
-}
-else if(password.length < 14){
-strengthText.textContent = "Medium"
-}
-else{
-strengthText.textContent = "Strong"
-}
-
+document.getElementById("password").value = password
 }
